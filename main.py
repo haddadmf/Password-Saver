@@ -9,6 +9,9 @@ for x in siteNames:
 def viewInfo():
     site_name = input('Please enter the name of the website/account you would '
                       'like to access information for: ')
+    site_name = site_name.title()
+    print(site_name)
+
     if site_name in siteNames.keys():
         username = siteNames[site_name].getUsername()
         password = siteNames[site_name].getPassword()
@@ -63,6 +66,14 @@ def editInfo(site_name):
 def addInfo():
     site_name = input('Please enter the name of the website/account you would like '
                       'to save information for: \n')
+    site_name.title()
+    # writing to file ######################################
+
+    write_file = open("test.txt", "w")
+    write_file.write(site_name)
+    write_file.close()
+
+    ########################################################
     if site_name not in siteNames.keys():
         unique_id = int(len(siteNames) + 1)
         siteNames[site_name] = unique_id

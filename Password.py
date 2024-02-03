@@ -14,7 +14,11 @@ class Password:
 
 
     def getUsername(self):
-        return str(self.username)
+        read_file = open("test.txt", "r")
+        content = read_file.read()
+        read_file.close()
+
+        return content
     
 
     def getPassword(self):
